@@ -1,0 +1,19 @@
+<?php
+#Plugin Description
+$s_plugin_Reminder_plugin_reminder_title = 'Plugin reminder';
+$s_plugin_Reminder_plugin_reminder_description = 'Envoi d\'un email récapitulatif des échéances de la semaine aux développeurs';
+
+#Page de configuration
+$s_plugin_Reminder_title = 'Plugin Reminder : Configuration';
+$s_plugin_Reminder_process_description = "Ce plugin vous permets d'envoyer aux développeurs des rappels des bugs à traiter ( ceux dont la date d'échéance est dépassée ), <br />mais aussi ceux qui sont à livrer dans les X jours suivants l'envoi ( option configurable )";
+$s_plugin_Reminder_process_cron = "Pour envoyer les rappels, il faut mettre en place une tache cron sous la forme wget http://mantisurl.tld/plugin.php?page=Reminder/reminder-cron.php à la fréquence d'envoi souhaitée";
+$s_plugin_Reminder_config_upcomming_days = "Nombre de jours suivant l'envoi";
+$s_plugin_Reminder_config_action_update = "Envoyer";
+
+#Envoi de l'email
+$s_plugin_Reminder_email_start = 'Bonjour,<br /><br />Voici le récapitulatif des bugs à traiter cette semaine : <br />';
+$s_plugin_Reminder_email_overdue_bugs = "Bugs dont la date d'échéance est dépassée : ";
+$s_plugin_Reminder_email_to_come_bugs = "Bugs dont l'échéance est cette semaine : ";
+$s_plugin_Reminder_email_end = 'Cordialement,<br /></br />';
+$s_plugin_Reminder_email_object = 'Récapitulatif Hebdommadaire des bugs';
+$s_plugin_Reminder_email_object_title = "Objet de l'email envoyé";
