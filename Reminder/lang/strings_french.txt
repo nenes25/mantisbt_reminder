@@ -8,6 +8,10 @@ $s_plugin_Reminder_title = 'Plugin Reminder : Configuration';
 $s_plugin_Reminder_process_description = "Ce plugin vous permets d'envoyer aux développeurs des rappels des bugs à traiter ( ceux dont la date d'échéance est dépassée ), <br />mais aussi ceux qui sont à livrer dans les X jours suivants l'envoi ( option configurable )";
 $s_plugin_Reminder_process_cron = "Pour envoyer les rappels, il faut mettre en place une tache cron sous la forme wget http://mantisurl.tld/plugin.php?page=Reminder/reminder-cron.php à la fréquence d'envoi souhaitée";
 $s_plugin_Reminder_config_upcomming_days = "Nombre de jours suivant l'envoi";
+$s_plugin_Reminder_enable_log = "Activer logs";
+$s_plugin_Reminder_yes = "Oui";
+$s_plugin_Reminder_no = "Non";
+$s_plugin_Reminder_config_updated = "Config mise à jour";
 $s_plugin_Reminder_config_action_update = "Envoyer";
 
 #Envoi de l'email

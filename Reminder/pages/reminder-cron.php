@@ -4,11 +4,9 @@
   Plugin Reminder pour Mantis BugTracker :
   Page appellée via cron de manière hebdomadaire pour envoyer un récapitulatif des bugs en attente de traitement
   @autor Hervé Hennes <contact@h-hennes.fr>
-  2013 - 2015
+  2013 - 2016
  */
 require_once( dirname(__FILE__) . '/../../../core.php' );
-
-ini_set('display_errors','on');
 
 #Recherche des informations sur les bugs
 $sql_bugs = 'SELECT b.id,b.handler_id,b.summary,b.due_date,u.enabled,u.email,t.name
@@ -49,8 +47,10 @@ if (db_num_rows($t_bug_result) > 0) {
                 $t_developpers_reminder_bugs[$t_result['handler_id']]['to_come'][] = $t_result;
         }
     }
-
-    var_dump($t_developpers_reminder_bugs);
+    
+    if ( plugin_config_get('enable_log') == 1) {
+        $fp = fopen(dirname(__FILE__).'/../reminder.log','w+');
+    }
     
     #Envoi des emails recapitulatif
     #@todo : Voir pour historiser les envois dans une table sql pour éviter les envois multiples
@@ -94,7 +94,14 @@ if (db_num_rows($t_bug_result) > 0) {
         $headers .= 'From: ' . $t_from_email . "\r\n";
         echo $t_from_email.'<br />';
         echo 'Envoi du mail '.plugin_config_get('email_object').' a '.$t_user_email.'<br />'.$message.'<br />';
+        if ( plugin_config_get('enable_log') == 1) {
+            fputs($fp,date("Y-m-d H:i:s").' Envoi email '.plugin_config_get('email_object').' a '.$t_user_email);
+        }
         mail($t_user_email, plugin_config_get('email_object'), $message, $headers);
+    }
+    
+    if ( plugin_config_get('enable_log') == 1) {
+        fclose($fp);
     }
 }
     

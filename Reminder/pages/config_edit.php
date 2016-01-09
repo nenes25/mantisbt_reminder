@@ -14,6 +14,7 @@ access_ensure_global_level( config_get( 'manage_plugin_threshold' ) );
 
 $f_days = gpc_get_int('days');
 $f_email_object = gpc_get_string('email_object');
+$f_enable_log = gpc_get_int('enable_log');
 
 #Mise à jour uniquement si les données ont changé
 if( plugin_config_get( 'days' ) != $f_days ) {
@@ -24,5 +25,8 @@ if( plugin_config_get( 'email_object' ) != $f_email_object ) {
 	plugin_config_set( 'email_object', $f_email_object );
 }
 
-print_successful_redirect( plugin_page( 'config', true ) );
+if( plugin_config_get( 'enable_log' ) != $f_enable_log ) {
+	plugin_config_set( 'enable_log', $f_enable_log );
+}
 
+print_successful_redirect( plugin_page( 'config&updated=1', true ) );
