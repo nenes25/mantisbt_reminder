@@ -16,7 +16,7 @@ html_page_top(plugin_lang_get('title'));
 
 <?php
  //Confirmation Message
-if ( gpc_get('updated')) {
+if ( gpc_get('updated',0) == 1) {
     echo '<p style="color:#009900;font-weight:bold;">'.plugin_lang_get('config_updated').'</p>';
 }
 ?>

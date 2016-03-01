@@ -13,7 +13,7 @@ class ReminderPlugin extends MantisPlugin {
         $this->name = plugin_lang_get('plugin_reminder_title');
         $this->description = plugin_lang_get('plugin_reminder_description');
         $this->page = 'config.php';
-        $this->version = '0.1.2';
+        $this->version = '0.1.3';
         $this->requires = array('MantisCore' => '1.2.0',);
         $this->author = 'Hennes Hervé';
         $this->url = 'http://www.h-hennes.fr/';
