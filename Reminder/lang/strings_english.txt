@@ -5,6 +5,7 @@ $s_plugin_Reminder_plugin_reminder_description = 'Send email to developpers to r
 
 #Page de configuration
 $s_plugin_Reminder_title = 'Plugin Reminder : Configuration';
+$s_plugin_Reminder_edit_reminder = 'Edit configuration';
 $s_plugin_Reminder_process_description = "This module allows you to send reminder to developper for the bugs which due date is passed, and for the one which have to be delivered in the X ( configurable option) days";
 $s_plugin_Reminder_process_cron = "To send reminders, you need to configure a cron task like wget http://mantisurl.tld/plugin.php?page=Reminder/reminder-cron.php on the desired frequency";
 $s_plugin_Reminder_config_upcomming_days = "Number of days after email send";

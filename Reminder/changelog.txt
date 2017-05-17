@@ -2,3 +2,4 @@
 2016-01-09 - V 0.1.2 : Ajout de logs
 2016-03-01 - V 0.1.3 : Correctif page de configuration
 2016-07-27 - V 0.1.4 : Compatibilité mantis 1.3
+2017-05-17 - V 0.1.5 : Compatibilité mantis 2.2.x
