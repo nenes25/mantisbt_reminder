@@ -22,4 +22,7 @@ $s_plugin_Reminder_email_to_come_bugs = "Bugs with close due date : ";
 $s_plugin_Reminder_email_end = 'Regards,<br /></br />';
 $s_plugin_Reminder_email_object = 'Mantis Bug Reminder';
 $s_plugin_Reminder_email_object_title = "Reminder email object";
+
+#Gestion des crons
+$s_plugin_Reminder_cron_reminder_description = "Bug to process reminder";
  

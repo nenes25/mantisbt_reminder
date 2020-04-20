@@ -17,8 +17,9 @@
 #  Reminder Plugin for Mantis BugTracker :
 #  - Send recapitulative email to developpers 
 #  © Hennes Hervé <contact@h-hennes.fr>
-#    2013-2016
-#  http://www.h-hennes.fr/blog/
+#  2013-2020
+#  https://www.h-hennes.fr/blog/
+#  https://github.com/nenes25/mantisbt_reminder
 
 #Page de mise à jour de la configuration du module
 

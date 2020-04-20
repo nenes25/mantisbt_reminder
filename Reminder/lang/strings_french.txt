@@ -22,3 +22,6 @@ $s_plugin_Reminder_email_to_come_bugs = "Bugs dont l'échéance est cette semain
 $s_plugin_Reminder_email_end = 'Cordialement,<br /></br />';
 $s_plugin_Reminder_email_object = 'Récapitulatif Hebdommadaire des bugs';
 $s_plugin_Reminder_email_object_title = "Objet de l'email envoyé";
+
+#Gestion des crons
+$s_plugin_Reminder_cron_reminder_description = "Récaptitulatif des bugs à traiter";

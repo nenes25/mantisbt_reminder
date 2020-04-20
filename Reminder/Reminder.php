@@ -17,8 +17,9 @@
 #  Reminder Plugin for Mantis BugTracker :
 #  - Send recapitulative email to developpers 
 #  © Hennes Hervé <contact@h-hennes.fr>
-#    2013-2016
-#  http://www.h-hennes.fr/blog/
+#  2013-2020
+#  https://www.h-hennes.fr/blog/
+#  https://github.com/nenes25/mantisbt_reminder
 
 class ReminderPlugin extends MantisPlugin {
 
@@ -26,10 +27,15 @@ class ReminderPlugin extends MantisPlugin {
         $this->name = plugin_lang_get('plugin_reminder_title');
         $this->description = plugin_lang_get('plugin_reminder_description');
         $this->page = 'config.php';
-        $this->version = '0.1.5';
+        $this->version = '0.1.6';
         $this->requires = array('MantisCore' => '2.2');
         $this->author = 'Hennes Hervé';
-        $this->url = 'http://www.h-hennes.fr/blog/';
+        $this->url = 'https://github.com/nenes25/mantisbt_reminder';
+
+        #Cron Manager
+        $this->uses = array(
+            'HhCronManager' => '0.1.0'
+        );
     }
 
     /**
@@ -44,6 +50,38 @@ class ReminderPlugin extends MantisPlugin {
         );
     }
 
-}
+    /**
+     * Liste des hooks du plugin
+     * @return array
+     */
+    function hooks()
+    {
+        global $g_event_cache;
+        $t_hooks = [];
+        #Custom Hook from plugin HhCronManager
+        if (array_key_exists('EVENT_PLUGIN_HHCRONMANAGER_COLLECT_CRON', $g_event_cache)) {
+            $t_hooks['EVENT_PLUGIN_HHCRONMANAGER_COLLECT_CRON'] = 'collect_cron';
+        }
+        return $t_hooks;
+    }
 
-?>
+    /**
+     * Définition des tâches cron du module
+     * @param string $eventName
+     * @return array
+     */
+    public function collect_cron($eventName)
+    {
+        $pluginName = str_replace('Plugin','',get_class($this));
+        return [
+            [
+                'plugin' => $pluginName,
+                'code' => $pluginName . '_cron_reminder',#unique code
+                'frequency' => '0 8 * * * 1',#cron expression
+                'description' => plugin_lang_get('cron_reminder_description'),
+                'url' => 'reminder-cron',#plugin page name
+            ],
+        ];
+    }
+
+}

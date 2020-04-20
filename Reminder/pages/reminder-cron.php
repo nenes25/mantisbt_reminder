@@ -17,8 +17,9 @@
 #  Reminder Plugin for Mantis BugTracker :
 #  - Send recapitulative email to developpers 
 #  © Hennes Hervé <contact@h-hennes.fr>
-#    2013-2016
-#  http://www.h-hennes.fr/blog/
+#  2013-2020
+#  https://www.h-hennes.fr/blog/
+#  https://github.com/nenes25/mantisbt_reminder
 
 require_once( dirname(__FILE__) . '/../../../core.php' );
 
@@ -104,7 +105,7 @@ if (db_num_rows($t_bug_result) > 0) {
         #Envoi de l'email
         $t_from_email = config_get('from_name').' <'.config_get('from_email').'>';
         $headers = 'MIME-Version: 1.0' . "\r\n";
-        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
         $headers .= 'From: ' . $t_from_email . "\r\n";
         echo $t_from_email.'<br />';
         echo 'Envoi du mail '.plugin_config_get('email_object').' a '.$t_user_email.'<br />'.$message.'<br />';
